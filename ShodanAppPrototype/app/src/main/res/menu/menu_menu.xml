@@ -11,7 +11,18 @@ xmlns:app="http://schemas.android.com/apk/res-auto">
     app:showAsAction="always"
 
     >
+
 </item>
+
+    <item
+        android:title=""
+        android:icon="@android:drawable/ic_menu_search"
+        android:id="@+id/Search"
+        app:showAsAction="ifRoom"
+
+        >
+
+    </item>
 
 
     <item
@@ -20,6 +31,8 @@ xmlns:app="http://schemas.android.com/apk/res-auto">
     android:id="@+id/MoreOptions"
     app:showAsAction="always"
     >
+
+
 
     <menu>
 
@@ -46,8 +59,8 @@ xmlns:app="http://schemas.android.com/apk/res-auto">
             >
 
         </item>
-
-        <item
+<!--
+       <item
             android:title="@string/Settings"
             android:icon="@drawable/ic_build_orange_a700_24dp"
             android:id="@+id/Settings"
@@ -55,7 +68,7 @@ xmlns:app="http://schemas.android.com/apk/res-auto">
             >
 
         </item>
-
+        -->
         <item
             android:id="@+id/Language"
             android:icon="@drawable/ic_language_green_800_24dp"

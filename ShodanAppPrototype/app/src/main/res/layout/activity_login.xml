@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/bg_default"
+    android:background="@drawable/mustahko"
     tools:context=".LoginActivity">
 
 
@@ -37,6 +37,7 @@
         android:layout_marginLeft="16dp"
         android:layout_marginStart="16dp"
         android:layout_marginTop="15dp"
+        android:textColor="@color/orange"
         android:text="@string/Info_Go_To_Hyperlink"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/ApikeyEditText" />
@@ -62,6 +63,7 @@
         android:id="@+id/textView25"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:textColor="@color/orange"
         android:layout_marginLeft="16dp"
         android:layout_marginStart="16dp"
         android:layout_marginTop="19dp"

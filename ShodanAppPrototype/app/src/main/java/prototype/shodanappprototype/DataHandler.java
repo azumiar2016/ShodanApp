@@ -1,18 +1,21 @@
 package prototype.shodanappprototype;
 
+
+
 import com.fooock.shodan.model.banner.Banner;
+
 
 import java.util.ArrayList;
 import java.util.Map;
 
 public class DataHandler {
-
+    // saattaa sisältää jotain ylimääräistä
     private static DataHandler handler;
     private ArrayList<FoundDevice> favouriteslist;
     private ArrayList<Banner> list;
     private ArrayList<String> IpList;
+    private ArrayList<FoundDevice> FoundDevices;
 
-  //  private Map<String,Integer> favouritesmap;
 
     private DataHandler() {
     }
@@ -29,10 +32,13 @@ public class DataHandler {
 
     public void setFavouriteslist(ArrayList<FoundDevice> Arraylist) {
         this.favouriteslist = Arraylist;
-}
-    public void addtofavourites(FoundDevice device){
+    }
+
+    public void addtofavourites(FoundDevice device) {
         this.favouriteslist.add(device);
     }
+
+    // Banner-lista sisältää kaiken tiedon laitteista mitä shodan-api antaa
     public ArrayList<Banner> getList() {
         return list;
     }
@@ -41,6 +47,7 @@ public class DataHandler {
         this.list = Arraylist;
     }
 
+    // tarkista onko tarpeellinen
     public ArrayList<String> getIpList() {
         return IpList;
     }
@@ -49,23 +56,23 @@ public class DataHandler {
         IpList = ipList;
     }
 
-    public void addToIpList(String s){
+    public void addToIpList(String s) {
         IpList.add(s);
     }
 
-
-
-
-
-
-
- /*   public Map<String,Integer> getFavouritesmap() {
-        return favouritesmap;
+    // ***************************
+    // Sisältää kaikki laitteet, jotka löydetään haulla
+    public ArrayList<FoundDevice> getFoundDevices() {
+        return FoundDevices;
     }
-*/
-   /* public void setFavouritesmap(Map<String,Integer> map) {
-        this.favouritesmap = map;
-    }*/
 
-  //  public void addToFavourites (String s, int i){this.favouritesmap.put(s,i);} // map ei toimi, pitää saada jotenkin listana siten että myös integer löytyy listasta, ehkäpä ipstr + i, josta i otetaan pois muutakäyttöä varten, toinen tapa olisi
-} // kahtena listana tai sitten siirtää i jotain muuta kautta favourites-luokan tietoon, mahdollisesti myös FoundDevice luokka voisi tulla tässäkohtaa käyttöön sisältäen integerin
+    public void setFoundDevices(ArrayList<FoundDevice> Arraylist) {
+        this.FoundDevices = Arraylist;
+    }
+
+    public void addtoFoundDevices(FoundDevice device) {
+        this.FoundDevices.add(device);
+    }
+
+
+}

@@ -2,19 +2,39 @@ package prototype.shodanappprototype;
 import java.util.ArrayList;
 
 public class FoundDevice {
-    private String HostName;
-    private String Ip;
-    private String Country;
-   // private String EverythingElse;
-   private String Server;
-   private int index;
+    // jaetaan tietoja vähän erilleen, nämä tiedot käytetään InformationOfResult-activityssä
+    private String Country,Server,HostName,Ip;
+    // Nämä tiedot ExtraInformationOfDevice-activityssä
+    private String html,uptime,product,version,port,link,os,timestamp,info;
 
-    private  ArrayList<String> data;
-    // FoundDevice ei sisällä muuta kuin indexin, tätä indexiä käytetään Favourite-activityssä jossa kyseisellä indexillä haetaan kaikkien laitteiden listasta oikea laite
-    public FoundDevice(int index){
 
-        this.index = index;
-     //   this.EverythingElse = everythingElse;
+
+
+
+
+
+
+
+    public FoundDevice(String Country, String Server, String HostName, String Ip,
+                       String html, String uptime, String product, String version, String port, String link, String os, String timestamp, String info
+    ){
+        //basic information for InformationOfResult-activityyn
+        this.Country = Country;
+        this.Server = Server;
+        this.HostName = HostName;
+        this.Ip = Ip;
+        //Extra information for ExtraInformationOfResult-activityyn
+        this.html = html;
+        this.uptime = uptime;
+        this.product = product;
+        this.version = version;
+        this.port = port;
+        this.link = link;
+        this.os = os;
+        this.timestamp = timestamp;
+        this.info = info;
+
+
     }
 
 
@@ -28,29 +48,62 @@ public class FoundDevice {
     public void setCountry(String Country){
         this.Country = Country;
     }
-    public void setEverythingElse(String EverythingElse){
-  //      this.EverythingElse = EverythingElse;
-    }
+
+
 
 
     public String getHostName(){
         return HostName;
     }
+
     public String getIp(){
         return Ip;
     }
+
     public String getCountry(){
         return Country;
     }
-    public String getServer(){return Server;}
-    public String getEverythingElse(){
-   //     return EverythingElse;
-        return "";
+
+    public String getServer(){
+        return Server;}
+
+    public String getHtml() {
+        return html;
     }
-    //Palautetaan indexi
-    public int getIndex(){
-        return this.index;
+
+    public String getUptime() {
+        return uptime;
     }
+
+    public String getProduct() {
+        return product;
+    }
+
+    public String getVersion() {
+        return version;
+    }
+
+    public String getPort() {
+        return port;
+    }
+
+    public String getLink() {
+        return link;
+    }
+
+    public String getOs() {
+        return os;
+    }
+
+    public String getTimestamp() {
+        return timestamp;
+    }
+
+    public String getInfo() {
+        return info;
+    }
+
+
 
 
 

@@ -14,28 +14,32 @@
 
     <application
         android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
-        android:label=""
-        android:roundIcon="@mipmap/ic_launcher_round"
+        android:icon="@mipmap/ic_launcher_custom"
+        android:label="Shodan"
+        android:roundIcon="@mipmap/ic_launcher_custom"
         android:supportsRtl="true"
         android:theme="@style/ShodanAppTheme">
-        <activity android:name=".SearchActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
+        <activity android:name=".SearchActivity"/>
         <activity android:name=".UseCameraToLogInActivity" />
         <activity android:name=".InformationOfResult" />
         <activity android:name=".AboutActivity" />
         <activity android:name=".FavouritesActivity" />
         <activity android:name=".ExtraInformationOfDevice" />
         <activity android:name=".GettingStartedActivity" />
-        <activity android:name=".MainActivity" />
+        <activity android:name=".MainActivity" >
+        <intent-filter>
+            <action android:name="android.intent.action.MAIN" />
+
+            <category android:name="android.intent.category.LAUNCHER" />
+        </intent-filter>
+        </activity>
+
         <activity
             android:name=".LoginActivity"
-            android:label="@string/title_activity_login"></activity>
+            android:label="@string/title_activity_login" />
+        <activity
+            android:name=".SettingsActivity"
+            android:label="@string/title_activity_settings"/>
     </application>
 
 </manifest>

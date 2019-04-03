@@ -5,7 +5,7 @@
     style="@style/ShodanAppTheme"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/bg_default"
+    android:background="@drawable/mustahko"
     tools:context=".InformationOfResult">
 
     <TextView

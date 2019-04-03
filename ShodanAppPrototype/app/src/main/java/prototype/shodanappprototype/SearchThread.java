@@ -18,22 +18,18 @@ import java.util.List;
 public class SearchThread extends Thread {
 
     ArrayList<String> ListOfIPS;
-  //  ArrayList<Banner> Temp;
-  //  ArrayList<FoundDevice> ArrayOfDevices;
+    ArrayList<FoundDevice> FoundDevices;
     ArrayList<Banner> DeviceList;  // Banner-luokasta löytyy tarvittavat tiedot
-    FoundDevice foundDevice;
+    private FoundDevice foundDevice;
     private String newText;
     private Activity m_activity;
     HostReport GetHostReport;
-    ConnectionHandler connectionHandler;
+    private ConnectionHandler connectionHandler;
     private boolean deviceSearchMade = false;
-    private ArrayList mlist;
-    String ip;
-    String country;
-    String server;
-    String name;
-    int index;
-    // CustomUserAdapter adapter;
+    String ip,country,server,name,html,uptime,product,version,port,link,os,timestamp,info;
+
+
+
     public int GetAnswer;
 
     public SearchThread(String text, Activity activity) {
@@ -55,7 +51,7 @@ public class SearchThread extends Thread {
             CreateListDeviceList();
 
 
-        } else {
+        } /*else {
             //Tarkoitus käyttää hakujen filtteröintiin, vielä tekemättä
             if (newText.length() > 1) {
 
@@ -104,7 +100,9 @@ public class SearchThread extends Thread {
 
 
             }
-        }
+
+        }*/
+
     }
 
     public int ReturnAnswer() {
@@ -116,18 +114,19 @@ public class SearchThread extends Thread {
     //    Temp = new ArrayList<>();
         ListOfIPS = new ArrayList<>();
         DeviceList = new ArrayList<>();
+        FoundDevices = new ArrayList<FoundDevice>();
+
         int i = 0;
         try {
             if (GetHostReport.getBanners() != null) {
 
                 while (i < GetHostReport.getBanners().size()) {
                     DeviceList.add(GetHostReport.getBanners().get(i));
-                    ip = DeviceList.get(i).getIpStr();
-                    country = DeviceList.get(i).getLocation().toString();
-                    server = DeviceList.get(i).getIsp();
-                    name = DeviceList.get(i).getTitle();
-                    index = i;
-                    foundDevice = new FoundDevice(index); // tämä kesken, tehdään samalla tavalla kuin ip-osoite
+                    setFoundDevices(i);
+
+                 //   index = i;
+                   // foundDevice = new FoundDevice(index); // tämä kesken, tehdään samalla tavalla kuin ip-osoite
+
                     ListOfIPS.add(DeviceList.get(i).getIpStr());
                     DataHandler.getInstance().setList(DeviceList);
                     i++;
@@ -139,82 +138,35 @@ public class SearchThread extends Thread {
         }
 
     }
+
+    public void setFoundDevices(int i){
+        // InformationOfDevice-activityyn ja listan luontiin SearchActivityssä
+        country = DeviceList.get(i).getLocation().toString();
+        server = DeviceList.get(i).getIsp();
+        name = DeviceList.get(i).getTitle();
+        ip = DeviceList.get(i).getIpStr();
+        // nämä menevät extrainformation activityyn, vähän rajattu
+        html = DeviceList.get(i).getHtml();
+        uptime = String.valueOf(DeviceList.get(i).getUptime());
+        product = DeviceList.get(i).getProduct();
+        version = DeviceList.get(i).getVersion();
+        port = String.valueOf(DeviceList.get(i).getPort());
+        link = DeviceList.get(i).getLink();
+        os = DeviceList.get(i).getOs();
+        timestamp = DeviceList.get(i).getTimestamp();
+        info = DeviceList.get(i).getInfo();
+        // tehdään foundDevice
+        foundDevice = new FoundDevice(country,server,name,ip,html,uptime,product,version,port,link,os,timestamp,info);
+
+        FoundDevices.add(foundDevice);
+        // laitetaan lista myös datahandleriin, joka helpottaa myöhemmin sen käyttöä eri activityissä
+        DataHandler.getInstance().setFoundDevices(FoundDevices);
+
+    }
 }
 
 
-        /*while(i<Temp.size()){
-
-            //ipStr='ip'
-         //   String ip = stripData(CurrentString,"ip");
-         //   String country = stripData(CurrentString,"country");
-
-        //    ArrayOfDevices.add(foundDevice);
-
-                ListOfIPS.add(foundDevice.getIp());
-                i++;
 
 
-
-
-          //  DataHandler.getInstance().setList(ArrayOfDevices);
-            DataHandler.getInstance().setList(DeviceList);
-
-        }
-        */
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/*
-    public String stripData(String currentString, String type){
-
-        if(type.equals("ip")){
-
-            String[] separateLeft = currentString.split("ipStr='");
-            String[] separateRight = separateLeft[1].split("'");
-            String ip = separateRight[0];
-
-            return ip;
-        }else if(type.equals("country")){
-
-            String[] separateLeft = currentString.split("ipStr='" );
-            String[] separateRight = separateLeft[1].split("'");
-            String country = separateRight[0];
-            return country;
-        }
-
-        else if(type.equals("server")){
-
-            String[] separateLeft = currentString.split("ipStr='");
-            String[] separateRight = separateLeft[1].split("'");
-            String country = separateRight[0];
-            return country;
-        }
-
-        else if(type.equals("name")){
-
-            String[] separateLeft = currentString.split("ipStr='");
-            String[] separateRight = separateLeft[1].split("'");
-            String country = separateRight[0];
-            return country;
-        }
-
-        return "VIRHE";
-
-    }
-
-*/
 
 

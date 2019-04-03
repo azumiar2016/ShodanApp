@@ -4,18 +4,19 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/bg_default"
+    android:background="@drawable/mustahko"
     tools:context=".AboutActivity">
 
     <TextView
         android:id="@+id/textView8"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="240dp"
-        android:textColor="@color/orange"
+        android:layout_marginBottom="34dp"
         android:text="@string/About_Intro"
-        app:layout_constraintBottom_toTopOf="@+id/textView7"
+        android:textColor="@color/orange"
+        app:layout_constraintBottom_toTopOf="@+id/GettingStarted_button"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -24,14 +25,13 @@
         android:id="@+id/textView7"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginEnd="125dp"
-        android:layout_marginRight="125dp"
-        android:layout_marginTop="240dp"
-        android:textColor="@color/orange"
+        android:layout_marginLeft="52dp"
+        android:layout_marginStart="52dp"
+        android:layout_marginTop="149dp"
         android:text="@string/About_Links_Info"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:textColor="@color/orange"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView8" />
+        app:layout_constraintTop_toBottomOf="@+id/GettingStarted_button" />
 
     <TextView
         android:id="@+id/hyperlink"
@@ -43,15 +43,15 @@
         android:layout_marginRight="254dp"
         android:layout_marginStart="16dp"
         android:layout_marginTop="42dp"
+        android:autoLink="web"
+        android:text="@string/Hyperlink_ShodanMainPage"
         android:textColor="@color/orange"
-        android:text="@string/hyperlink"
         app:layout_constraintBottom_toTopOf="@+id/hyperlink2"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView7"
-        android:autoLink="web"
 
-        />
+        app:layout_constraintTop_toBottomOf="@+id/textView7" />
 
     <TextView
         android:id="@+id/hyperlink2"
@@ -63,15 +63,25 @@
         android:layout_marginRight="254dp"
         android:layout_marginStart="16dp"
         android:layout_marginTop="13dp"
-        android:textColor="@color/orange"
+        android:autoLink="web"
         android:text="@string/hyperlink2"
+        android:textColor="@color/orange"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/hyperlink"
-        android:autoLink="web"
 
-        />
+        app:layout_constraintTop_toBottomOf="@+id/hyperlink" />
+
+    <Button
+        android:id="@+id/GettingStarted_button"
+        android:layout_width="255dp"
+        android:layout_height="73dp"
+        android:layout_marginTop="28dp"
+        android:background="@drawable/showmoreinformation_btn"
+        android:text="@string/GettingStarted"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView8" />
 
 
 </android.support.constraint.ConstraintLayout>

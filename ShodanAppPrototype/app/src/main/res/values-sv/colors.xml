@@ -7,4 +7,8 @@
     <color name="blue">#0210d1</color>
     <color name="background_material_light">#748bfa</color>
     <color name="orange">#ffa500</color>
+    <color name="introslide1color">#5F85F5</color>
+    <color name="introslide2color">#1DC400</color>
+    <color name="introslide3color">#FFBF59</color>
+    <color name="white_for_slides">#FFFFFF</color>
 </resources>

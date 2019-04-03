@@ -27,11 +27,16 @@ public class SearchActivity extends AppCompatActivity {
     int FoundData;
     FoundDevice device;
     ArrayList list;
+    ArrayList<FoundDevice> foundDevices;
+    // tämä toistaiseksi protoiluun
     CustomListAdapter adapter;
+    //Lista-adapteri, joka näyttää atm. ip-osoitteen ja serverin
+    CustomListAdapter2 adapter2;
     SearchThread mysearch;
     ListView listView;
     MyMenu menu;
     Intent intent;
+    ArrayList<FoundDevice> FoundDevices; // Pitää sisällään applikaatiossa käytetyt tiedot laitteista, kaikkea shodanin tietoa ei tarvita, koska sitä aivan liikaa
     static ArrayList<FoundDevice> ArrayOfDevices = new ArrayList<FoundDevice>();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,14 +44,10 @@ public class SearchActivity extends AppCompatActivity {
         setContentView(R.layout.activity_search);
         StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
         StrictMode.setThreadPolicy(policy);
-        //Käynnistetään aluksi GettingStartedActivity, joka ohjeistaa ohjelman käytössä
-        // Muutataan siten, että vain ekalla käynnistyksellä!!!!!!!!
-        intent = new Intent(this,GettingStartedActivity.class);
-        startActivity(intent);
 
-        //Jos ei olla kirjauduttu sisään niin avataan käynnistyksen yhteydessä UseCameraToLogInActivity
-        if (AppConstants.KEY_QR_CODE.equals("")) {
-          intent  = new Intent(this, UseCameraToLogInActivity.class);
+        //Jos ei olla kirjauduttu sisään niin avataan käynnistyksen yhteydessä loginActivity
+        if (AppConstants.KEY_QR_CODE == null) {
+          intent  = new Intent(this, LoginActivity.class);
             startActivity(intent);
         }
 
@@ -54,6 +55,7 @@ public class SearchActivity extends AppCompatActivity {
         searchText = (EditText)findViewById(R.id.SearchText);
         text = (TextView)findViewById(R.id.SearchInfoText);
         list = new ArrayList();
+        foundDevices = new ArrayList<FoundDevice>();
         menu = new MyMenu(this);
         mysearch = null;
         //Asetetaan hakunappi
@@ -67,7 +69,7 @@ public class SearchActivity extends AppCompatActivity {
 
                 //  ConnectionHandler connectionHandler = new ConnectionHandler(searchText.getText().toString(),SearchActivity.this);
                 SearchString = searchText.getText().toString();
-                if (AppConstants.KEY_QR_CODE.equals("")) {
+                if (AppConstants.KEY_QR_CODE == null) {
                     text.setText(getString(R.string.Have_to_Login_first));
                 } else {
 
@@ -81,9 +83,12 @@ public class SearchActivity extends AppCompatActivity {
 
                     // Jos tehdyllä haulla saadaan tuloksia, luodaan lista ja laitetaan se ListViewiin adapterin avulla
                     if (reportHostData != null && list != null) {
-                        adapter = new CustomListAdapter(SearchActivity.this, list);
-                        listView = (ListView) findViewById(R.id.DeviceList);
-                        listView.setAdapter(adapter);
+                      //  adapter = new CustomListAdapter(SearchActivity.this, list);
+                        adapter2 = new CustomListAdapter2(SearchActivity.this,foundDevices);
+                       listView = (ListView) findViewById(R.id.DeviceList);
+                       listView.setAdapter(adapter2);
+                      //  listView.setAdapter(adapter);
+
 
                     }
                     //Asetetaan listviewin itemeille OnClickListeneri, jolla avataan InformationOfResult-activity, joka näyttää valitusta laitteesta lisätietoja
@@ -92,7 +97,11 @@ public class SearchActivity extends AppCompatActivity {
                             @Override
                             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                                 Intent myIntent = new Intent(SearchActivity.this, InformationOfResult.class);
-                                myIntent.putExtra("deviceInformation", position); //Optional parameters
+                             //   myIntent.putExtra("deviceInformation", position); //Optional parameters
+                                Bundle extras = new Bundle();
+                                extras.putString("EXTRAS_Activity","Search");
+                                extras.putInt("EXTRA_index",position);
+                                myIntent.putExtras(extras);
                                 SearchActivity.this.startActivity(myIntent);
                                 Toast.makeText(SearchActivity.this, list.get(position).toString(), Toast.LENGTH_SHORT).show();
                             }
@@ -116,6 +125,7 @@ public class SearchActivity extends AppCompatActivity {
         FoundData = mysearch.GetAnswer;
         reportHostData = mysearch.GetHostReport;
         list = mysearch.ListOfIPS;
+        foundDevices = DataHandler.getInstance().getFoundDevices();
     }
 
 
@@ -146,6 +156,8 @@ public class SearchActivity extends AppCompatActivity {
         }
         return true;
     }
+
+
 
 
 

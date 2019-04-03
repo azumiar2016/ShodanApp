@@ -4,34 +4,64 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/bg_layout_2"
+    android:background="@color/introslide2color"
     >
 
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="219dp"
+        android:layout_height="158dp"
+        android:layout_marginEnd="70dp"
+        android:layout_marginLeft="71dp"
+        android:layout_marginRight="70dp"
+        android:layout_marginStart="71dp"
+        android:layout_marginTop="29dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView26"
+        app:srcCompat="@drawable/slide2_pic" />
+
     <TextView
-        android:id="@+id/textView12"
+        android:id="@+id/textView24"
         android:layout_width="wrap_content"
-        android:layout_height="139dp"
-        android:layout_marginBottom="368dp"
-        android:layout_marginTop="60dp"
-        android:background="@drawable/introduction_text_2"
-        android:text="Jotain paskaa"
-        android:textColor="#0a0400"
-        android:textSize="20sp"
+        android:layout_height="19dp"
+        android:layout_marginBottom="146dp"
+        android:layout_marginEnd="17dp"
+        android:layout_marginLeft="35dp"
+        android:layout_marginRight="17dp"
+        android:layout_marginStart="35dp"
+        android:layout_marginTop="42dp"
+        android:text="Save your favourites and see them at any time"
+        android:textColor="@color/white_for_slides"
+        android:textSize="15sp"
+        android:shadowColor="#000000"
+        android:shadowDx="3"
+        android:shadowDy="3"
+        android:shadowRadius="0.01"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/imageView2" />
 
-    <ImageView
-        android:id="@+id/imageView"
-        android:layout_width="match_parent"
-        android:layout_height="246dp"
-        android:layout_marginTop="44dp"
-        android:scaleType="fitXY"
+    <TextView
+        android:id="@+id/textView26"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="84dp"
+        android:layout_marginLeft="84dp"
+        android:layout_marginRight="84dp"
+        android:layout_marginStart="84dp"
+        android:layout_marginTop="90dp"
+        android:text="Save Your Favourites"
+        android:textColor="@color/white_for_slides"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        android:shadowColor="#000000"
+        android:shadowDx="3"
+        android:shadowDy="3"
+        android:shadowRadius="0.01"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView12"
-        app:srcCompat="@drawable/introduction_search_img" />
-
-
+        app:layout_constraintTop_toTopOf="parent" />
 </android.support.constraint.ConstraintLayout>

@@ -17,17 +17,18 @@
     <string name="fi">fi</string>
     <string name="en">en</string>
     <string name="sv">sv</string>
+    <string name="GettingStarted">Show Getting Started Intro</string>
     <string name="favourites_intro">Here you can find your favorite devices, you can add more favourites when you open FoundDevice-Ip from search</string>
     <string name="main">main</string>
     <string name="hyperlink">http://google.com</string>
-    <string name="hyperlink2">http://google.com</string>
+    <string name="hyperlink2">https://en.wikipedia.org/wiki/Shodan_(website)</string>
     <string name="About_Intro">This App is Unofficial version of a Shodan.io-site and is not for commercial use </string>
     <string name="About_Links_Info">Links for more information about Shodan:</string>
     <string name="Have_to_Login_first">You have login first!</string>
     <string name="Take_me_to_site">Take Me to the devices site</string>
     <string name="Warning_sign">NOTE THAT THIS MIGHT BE ILLEGAL! FROM THIS POINT I DONT TAKE ANY RESPONSIBILITIES</string>
     <string name="Information_of_Device">Information of Device: </string>
-
+    <string name="Hyperlink_ShodanMainPage">https://www.shodan.io/</string>
     <string name="Info">Info:</string>
     <string name="Timestamp">Timestamp:</string>
     <string name="Os">Os:</string>

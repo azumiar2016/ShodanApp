@@ -13,14 +13,16 @@
     <string name="Language">Kieli</string>
     <string name="Favourites">Suosikit</string>
     <string name="LogOut">Kirjaudu ulos/sisään</string>
+
     <string name="Search">Haku</string>
     <string name="fi">fi</string>
     <string name="en">en</string>
     <string name="sv">sv</string>
+    <string name="GettingStarted">Näytä aloitusohjeet</string>
     <string name="favourites_intro">Täältä näet suosikkisi, voit lisätä suosikkeja, kun avaat ip-linkin hakemisen jälkeen</string>
     <string name="main">Päävalikko</string>
     <string name="hyperlink">http://google.com</string>
-    <string name="hyperlink2">http://google.com</string>
+    <string name="hyperlink2">https://en.wikipedia.org/wiki/Shodan_(website)</string>
     <string name="About_Intro">Tämä ohjelma on epävirallinen versio Shodan.io-sivustosta eikä ole tarkoitettu kaupalliseen käyttöön </string>
     <string name="About_Links_Info">Sivustoja, joista löytyy lisätietoa Shodanista:</string>
     <string name="Have_to_Login_first">Sinun täytyy ensiksi kirjautua!</string>
@@ -46,5 +48,79 @@
     <string name="EditText_ApikeyHere">Apikey here</string>
     <string name="LogIn">Login</string>
     <string name="HyperLink_ShodanProfile">https://account.shodan.io/</string>
+    <string name="Hyperlink_ShodanMainPage">https://www.shodan.io/</string>
     <string name="Info_Go_To_Hyperlink">You can find your APIKEY from your shodan profile:</string>
+    <string name="title_activity_settings">Settings</string>
+
+    <!-- Strings related to Settings -->
+
+    <!-- Example General settings -->
+    <string name="pref_header_general">General</string>
+
+    <string name="pref_title_social_recommendations">Enable social recommendations</string>
+    <string name="pref_description_social_recommendations">Recommendations for people to contact
+        based on your message history
+    </string>
+
+    <string name="pref_title_display_name">Display name</string>
+    <string name="pref_default_display_name">John Smith</string>
+
+    <string name="pref_title_add_friends_to_messages">Add friends to messages</string>
+    <string-array name="pref_example_list_titles">
+        <item>Always</item>
+        <item>When possible</item>
+        <item>Never</item>
+    </string-array>
+    <string-array name="pref_example_list_values">
+        <item>1</item>
+        <item>0</item>
+        <item>-1</item>
+    </string-array>
+
+    <!-- Example settings for Data & Sync -->
+    <string name="pref_header_data_sync">Data &amp; sync</string>
+
+    <string name="pref_title_sync_frequency">Sync frequency</string>
+    <string-array name="pref_sync_frequency_titles">
+        <item>15 minutes</item>
+        <item>30 minutes</item>
+        <item>1 hour</item>
+        <item>3 hours</item>
+        <item>6 hours</item>
+        <item>Never</item>
+    </string-array>
+    <string-array name="pref_sync_frequency_values">
+        <item>15</item>
+        <item>30</item>
+        <item>60</item>
+        <item>180</item>
+        <item>360</item>
+        <item>-1</item>
+    </string-array>
+
+    <string-array name="list_preference_entries">
+        <item>Entry 1</item>
+        <item>Entry 2</item>
+        <item>Entry 3</item>
+    </string-array>
+
+    <string-array name="list_preference_entry_values">
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+    </string-array>
+
+    <string-array name="multi_select_list_preference_default_value" />
+
+    <string name="pref_title_system_sync_settings">System sync settings</string>
+
+    <!-- Example settings for Notifications -->
+    <string name="pref_header_notifications">Notifications</string>
+
+    <string name="pref_title_new_message_notifications">New message notifications</string>
+
+    <string name="pref_title_ringtone">Ringtone</string>
+    <string name="pref_ringtone_silent">Silent</string>
+
+    <string name="pref_title_vibrate">Vibrate</string>
 </resources>

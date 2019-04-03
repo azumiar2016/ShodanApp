@@ -11,6 +11,7 @@ import android.widget.TextView;
 public class ExtraInformationOfDevice extends AppCompatActivity {
     TextView html,uptime,product,version,port,link,os,timestamp,info;
     int i;
+    String PreviousActivity;
     MyMenu menu;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -18,7 +19,9 @@ public class ExtraInformationOfDevice extends AppCompatActivity {
         setContentView(R.layout.activity_extra_information_of_device);
         Intent intent = getIntent();
         menu = new MyMenu(this);
-        i = intent.getIntExtra("IndexOfInformation", 0);
+        Bundle extras = intent.getExtras();
+        i = extras.getInt("EXTRA_index",0);
+        PreviousActivity = extras.getString("EXTRAS_Activity");
         setViews();
         setData();
 
@@ -37,16 +40,33 @@ public class ExtraInformationOfDevice extends AppCompatActivity {
 
     }
     // Paljon erilaista tietoa löydetystä laitteesta
+    // täällä voitais hyödyntää ihan vaan founddevice-listaa banner listan sijaan
     public void setData() {
-        html.setText(DataHandler.getInstance().getList().get(i).getHtml());
-      //  uptime.setText(DataHandler.getInstance().getList().get(i).getUptime());
-        product.setText(DataHandler.getInstance().getList().get(i).getProduct());
-        version.setText(DataHandler.getInstance().getList().get(i).getVersion());
-      //  port.setText(DataHandler.getInstance().getList().get(i).getPort());
-        link.setText(DataHandler.getInstance().getList().get(i).getLink());
-        os.setText(DataHandler.getInstance().getList().get(i).getOs());
-        timestamp.setText(DataHandler.getInstance().getList().get(i).getTimestamp());
-        info.setText(DataHandler.getInstance().getList().get(i).getInfo());
+        if (PreviousActivity.equals("Search")){
+            html.setText(DataHandler.getInstance().getList().get(i).getHtml());
+            //  uptime.setText(DataHandler.getInstance().getList().get(i).getUptime());
+            product.setText(DataHandler.getInstance().getList().get(i).getProduct());
+            version.setText(DataHandler.getInstance().getList().get(i).getVersion());
+            //  port.setText(DataHandler.getInstance().getList().get(i).getPort());
+            link.setText(DataHandler.getInstance().getList().get(i).getLink());
+            os.setText(DataHandler.getInstance().getList().get(i).getOs());
+            timestamp.setText(DataHandler.getInstance().getList().get(i).getTimestamp());
+            info.setText(DataHandler.getInstance().getList().get(i).getInfo());
+
+        }else if(PreviousActivity.equals("Favourites")){
+
+            html.setText(DataHandler.getInstance().getFavouriteslist().get(i).getHtml());
+            //  uptime.setText(DataHandler.getInstance().getFavouriteslist().get(i).getHtml());
+            product.setText(DataHandler.getInstance().getFavouriteslist().get(i).getProduct());
+            version.setText(DataHandler.getInstance().getFavouriteslist().get(i).getVersion());
+            //  port.setText(DataHandler.getInstance().getFavouriteslist().get(i).getHtml());
+            link.setText(DataHandler.getInstance().getFavouriteslist().get(i).getLink());
+            os.setText(DataHandler.getInstance().getFavouriteslist().get(i).getOs());
+            timestamp.setText(DataHandler.getInstance().getFavouriteslist().get(i).getTimestamp());
+            info.setText(DataHandler.getInstance().getFavouriteslist().get(i).getInfo());
+
+        }
+
     }
 
     @Override

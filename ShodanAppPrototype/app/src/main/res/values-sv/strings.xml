@@ -17,17 +17,18 @@
     <string name="fi">fi</string>
     <string name="en">en</string>
     <string name="sv">sv</string>
+    <string name="GettingStarted">Show Getting Started Intro</string>
     <string name="favourites_intro">Här kan du hitta dina favorit enheter, du kan lägga till fler favoriter när du öppnar FoundDevice-Ip från sökning</string>
     <string name="main">main</string>
     <string name="hyperlink">http://google.com</string>
-    <string name="hyperlink2">http://google.com</string>
+    <string name="hyperlink2">https://en.wikipedia.org/wiki/Shodan_(website)</string>
     <string name="About_Intro">Den här appen är inofficiell version av en Shodan.io-webbplats och är inte för kommersiell användning </string>
     <string name="About_Links_Info">Länkar för mer information om Shodan:</string>
     <string name="Have_to_Login_first">Du har inloggad först!</string>
     <string name="Take_me_to_site">Ta mig till enhetens webbplats</string>
     <string name="Warning_sign">OBSERVERA ATT DET HÄR KAN VARA OLAGLIGT! FRÅN DENNA PUNKT TAR JAG INTE NÅGRA ANSVARSFÖRHÅLLANDEN</string>
     <string name="Information_of_Device">Information om enheten: </string>
-
+    <string name="Hyperlink_ShodanMainPage">https://www.shodan.io/</string>
     <string name="Info">Info:</string>
     <string name="Timestamp">Timestamp:</string>
     <string name="Os">Os:</string>

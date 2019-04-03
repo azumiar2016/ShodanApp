@@ -18,6 +18,8 @@ import java.util.ArrayList;
 
 public class FavouritesActivity extends AppCompatActivity {
     CustomListAdapter adapter;
+    CustomListAdapter2 adapter2;
+    ArrayList<FoundDevice> ListForFavourites2;
     ListView listView;
     MyMenu menu;
     ArrayList<String> ListForFavourites;
@@ -27,18 +29,21 @@ public class FavouritesActivity extends AppCompatActivity {
         setContentView(R.layout.activity_favourites);
         menu = new MyMenu(this);
         // Jos lista on olemassa niin se asetetaan ListViewiin
-        if (DataHandler.getInstance().getFavouriteslist() != null){
-           // CreateListViewForAdapter();
-            adapter = new CustomListAdapter(FavouritesActivity.this, DataHandler.getInstance().getIpList());
+        if ( DataHandler.getInstance().getFavouriteslist() != null){
+            adapter2 = new CustomListAdapter2(FavouritesActivity.this , DataHandler.getInstance().getFavouriteslist());
             listView = (ListView) findViewById(R.id.ListViewForFavourites);
-            listView.setAdapter(adapter);
-            // ListItemille laitetaan kuuntelija
+
+            listView.setAdapter(adapter2);
+
             listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                 @Override
                 public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                     Intent myIntent = new Intent(FavouritesActivity.this, InformationOfResult.class);
-                    // Laitetaan extraksi
-                    myIntent.putExtra("deviceInformation", DataHandler.getInstance().getFavouriteslist().get(position).getIndex()); //Optional parameters
+                    Bundle extras = new Bundle();
+                    // kerrotaan informationOfResult-activitylle, että tullaan favourite-activitystä
+                    extras.putString("EXTRAS_Activity","Favourites");
+                    extras.putInt("EXTRA_index",position);
+                    myIntent.putExtras(extras);
                     FavouritesActivity.this.startActivity(myIntent);
             //        Toast.makeText(FavouritesActivity.this, ListForFavourites.get(position).toString(), Toast.LENGTH_SHORT).show();
                 }
@@ -79,21 +84,5 @@ public class FavouritesActivity extends AppCompatActivity {
         return true;
     }
 
-  /*  public void CreateListViewForAdapter(){
-        int i = 0;
 
-        while(i<DataHandler.getInstance().getFavouriteslist().size()){
-            if (i == DataHandler.getInstance().getFavouriteslist().get(i).getIndex()){
-
-
-
-            }
-            i++;
-
-        }
-
-
-
-
-}*/
 }
